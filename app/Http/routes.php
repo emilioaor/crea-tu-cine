@@ -19,6 +19,9 @@ Route::post('/subscriber/add','indexController@suscription');
 Route::get('/download/{id}','indexController@download');
 Route::get('/subscriber/agradecimientos','indexController@graxx');
 Route::get('/error/404','indexController@error404');
+// Alertas
+Route::get('alert/success','indexController@success');
+Route::get('alert/fail','indexController@fail');
 
 //Rutas Generos
 Route::get('genero/{genero}','genreController@index');
@@ -36,3 +39,4 @@ Route::group(['prefix'	=> 'admin','middleware' => 'admin'],function(){
 	Route::resource('relations','relationsController');
 	Route::get('subscribers','subscribersController@index');
 });
+

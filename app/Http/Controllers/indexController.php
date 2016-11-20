@@ -103,4 +103,14 @@ class indexController extends Controller
         return view('errors/404');
     }
 
+    public function success(){
+
+        return view('alert/success');
+    }
+
+    public function fail(){
+
+        return view('alert/fail');
+    }
+
 }

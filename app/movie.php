@@ -9,7 +9,7 @@ class movie extends Model
 {
     protected $table = 'movies';
 
-    protected $fillable = ['title','synopsis','image','download','year','slug','trailer','online','uploaded','turbobit','thevideos','thevideos2','completa','id_relation'];
+    protected $fillable = ['title','synopsis','image','download','year','slug','trailer','online','uploaded','turbobit','thevideos','thevideos2','completa','id_relation','price'];
 
     public function relation(){
 
@@ -24,5 +24,10 @@ class movie extends Model
     public function scopeSearch($query, $title){
 
     	return $query->where('title','like',"%$title%");
+    }
+
+    public function users(){
+
+        return $this->belongsToMany('App\User','movies_users','movie_id','user_id');
     }
 }

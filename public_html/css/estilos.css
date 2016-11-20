@@ -1,9 +1,33 @@
 .img-responsive{
 	width: 100%;
 }
+header{
+	background: #222;
+	color: #fff;
+	font-size: 16px;
+	height: 40px;
+	padding-top: 10px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 10;
+}
+header a{
+	color: #fff;
+}
+header a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+header a:focus{
+	color: #fff;
+	text-decoration: none;
+}
 .jumbotron{
 	background: #2196F3;
 	color: #fff;
+	margin-top: 40px;
 }
 .jumbotron .spaceLogo{
 	background-image: url(../images/cinta.png);
@@ -91,7 +115,11 @@ footer{
 }
 
 /*  Movies  */
-
+.price{
+	font-size: 40px;
+	text-align: center;
+	margin-top: 50px;
+}
 .spaceButtons{
 	margin-top: 20px;
 }

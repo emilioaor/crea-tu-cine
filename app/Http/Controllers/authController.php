@@ -21,11 +21,11 @@ class authController extends Controller
 
     public function authenticate(Request $request){
 
-
-
         if(Auth::attempt(['name' => $request->name,'password' => $request->password]) ){
             
-            return redirect()->intended('admin/movies');
+            if( Auth::user()->level == 'administrador' ) return redirect()->intended('admin/movies');
+            else return redirect('/'); 
+
         }else{
             alert::show('alert-danger','Error al iniciar sesión');
             return redirect('auth/login');

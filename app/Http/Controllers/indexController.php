@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\movie;
 use App\subscriber;
+use Auth;
 
 class indexController extends Controller
 {
@@ -28,6 +29,19 @@ class indexController extends Controller
 
         if( count($movie)>0 ){
 
+            $compra = false;
+            //verificar si el usuario esta log
+            if( Auth::check() ){
+
+                //Verificar si ya compro esta película
+                $movieBuys = $movie->users()->get();
+                foreach($movieBuys as $movieBuy){
+
+                    if($movieBuy->id == Auth::user()->id ) $compra = true;
+                }
+
+            }
+
             //Obtener peliculas Recomendadas
             $codGenre = $movie->genres->first()->id;
             
@@ -42,7 +56,7 @@ class indexController extends Controller
                 return view('movie')->with('movie',$movie)->with('moviesRecomendations',$moviesRecomendations)->with('moviesRelations',$moviesRelations);
             }
 
-            return view('movie')->with('movie',$movie)->with('moviesRecomendations',$moviesRecomendations);
+            return view('movie')->with('movie',$movie)->with('moviesRecomendations',$moviesRecomendations)->with('compra',$compra);
 
         }else{
             return redirect('error/404');

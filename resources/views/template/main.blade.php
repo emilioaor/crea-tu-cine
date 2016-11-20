@@ -20,26 +20,20 @@
 	  ga('send', 'pageview');
 
 	</script>
-
+	@include('template.toolbar')
 	<div class="jumbotron">
 		<div class="container-fluid">
 			<div class="spaceLogo">
-				<a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" alt="Ver películas online o descargar HD gratis" title="Ver películas online o descargar HD gratis"></a>
+				<a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" alt="Venta de películas online para descargar HD" title="Venta de películas online para descargar HD"></a>
 			</div>
 			<h1 class="text-center">@yield('jumbotron-h1')</h1>
 			<p class="text-justify">@yield('jumbotron-p')</p>
 		</div>
-
 		<section class="spaceSearch">
-		
-			<div class="container-fluid">
-				
+			<div class="container-fluid">	
 				<div class="row">
-			  
 					<div class="col-md-6 col-md-offset-3">
-						
 						<form action="{{ url('/') }}" method="get">
-							
 							<div class="input-group">
 								<input type="text" class="form-control" name="title" placeholder="Buscar...">
 								<span class="input-group-btn">
@@ -47,44 +41,31 @@
 								</span>
 							</div>
 						</form>
-
 					</div>
-
 				</div>
 			</div>
 		</section>
-
 	</div>
-
 	@include('template.nav')
-
 	<section class="main">
 		@yield('content')
 	</section>
-
 	<aside>
-		
 		<div class="container-fluid">
-			
 			<div class="row">
-
 				<div class="col-md-6">
 					<h3>Suscribir</h3>
 					<form action="{{ url('subscriber/add') }}" method="post">
-
 						{{ csrf_field() }}
-
 						<div class="form-group">
 							<label for="email" class="sr-only">Correo</label>
 							<input type="text" class="form-control" name="email" placeholder="ejemplo@mail.com" required>
 						</div>
-
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Suscribir</button>
 						</div>
 					</form>
 				</div>
-
 				<div class="col-md-6">
 					<h3>Redes Sociales</h3>
 					<div class=".col-md.12">
@@ -94,18 +75,14 @@
 						<a target="_blank" href="https://www.youtube.com/channel/UCCfK6k6DKyv1jCxHFJ3mUzg" class="btn btn-primary" rel="nofollow">Y</a>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</aside>
-
 	<footer>
 		<div class="container-fluid">
-			<p class="text-center">Películas Online | Películas Gratis | Descargar Películas | Películas HD 1080p | Descargar Películas por MEGA</p>
+			<p class="text-center">Venta Películas Online | Comprar Películas | Descargar Películas | Películas HD 1080p | Descargar Películas por MEGA</p>
 		</div>
 	</footer>
-	
-
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="{{ url('js/bootstrap.min.js') }}"></script>
 	<script src="{{ url('js/eventos.js') }}"></script>

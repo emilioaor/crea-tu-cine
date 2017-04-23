@@ -5,10 +5,19 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="title" content="@yield('meta-title','Crea tu propio cine online y conviertelo en el mas popular')">
+    <meta name="description" content="@yield('meta-description','Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular')">
+    <meta name="author" content="Digital Designs Group">
+    <meta property="og:url"           content="@yield('og-url','http://peliculascineencasa.com')" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="@yield('og-title','Cine en Casa')" />
+    <meta property="og:description"   content="@yield('og-description','Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular')" />
+    <meta property="og:image"         content="@yield('og-image','http://peliculascineencasa.com/images/banner.jpg')" />
+    @yield('meta')
 
-    <title>Cine en Casa</title>
+    <title>@yield('title','Cine en Casa')</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('images/icono.png') }}" />
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

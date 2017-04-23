@@ -1,5 +1,9 @@
 @extends('templates.base')
 
+@section('meta')
+    <meta name="robots" content="noindex">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

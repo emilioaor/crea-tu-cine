@@ -1,5 +1,11 @@
 @extends('templates.base')
 
+@section('title','Bievenido a ' . $cinema->name)
+
+@section('og-url','http://peliculascineencasa.com/cine/' . $userUrl . '/share')
+@section('og-title',$cinema->name)
+@section('og-image','http://peliculascineencasa.com/' . $cinema->image)
+
 @section('content')
     <div class="container">
         <div class="row">

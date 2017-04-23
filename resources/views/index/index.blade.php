@@ -4,17 +4,19 @@
 <head>
 
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="Crea tu propio cine online y conviertelo en el mas popular">
     <meta name="description" content="Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular">
     <meta name="author" content="Digital Designs Group">
-
+    <link rel="icon" type="image/png" href="{{ asset('images/icono.png') }}" />
     <meta property="og:url"           content="http://peliculascineencasa.com" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Cine en Casa" />
     <meta property="og:description"   content="Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular" />
     <meta property="og:image"         content="http://peliculascineencasa.com/images/banner.jpg" />
 
-    <title>Cine en Casa</title>
+    <title>Crea tu propio cine online</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

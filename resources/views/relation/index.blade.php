@@ -1,6 +1,8 @@
 @extends('templates.base')
 
-@section('big-title','<h3 id="homeHeading">Relaciones!</h3>')
+@section('meta')
+    <meta name="robots" content="noindex">
+@endsection
 
 @section('content')
     <div class="container">

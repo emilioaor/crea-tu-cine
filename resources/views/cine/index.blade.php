@@ -1,13 +1,19 @@
 @extends('templates.base')
 
+@section('title', (Request::has('page') && Request::get('page') != 1 ? Request::get('page') . ' - ' : '') . $cinema->name)
+
+@section('og-url','http://peliculascineencasa.com/cine/' . $userUrl)
+@section('og-title', $cinema->name)
+@section('og-image','http://peliculascineencasa.com/' . $cinema->image)
+
 @section('content')
     @include('templates.dynamic-styles')
     <div class="container">
         <div class="row" id="genres">
             <ul>
-                <li><a href="{{ route('cine.user.index', ['user' => $userUrl]) }}" class="dynamic-link">Todo</a></li>
+                <li><a href="{{ route('cine.user.index', ['user' => $userUrl]) }}" class="{{ isset($filterGenre) ? 'dynamic-link' : 'btn btn-primary' }}">Todo</a></li>
                 @foreach($genres as $genre)
-                    <li><a href="{{ route('cine.user.genre', ['user' => $userUrl, 'id' => $genre->id]) }}" class="dynamic-link">{{ $genre->name }}</a></li>
+                    <li><a href="{{ route('cine.user.genre', ['user' => $userUrl, 'id' => $genre->id]) }}" class="{{ isset($filterGenre) && $filterGenre == $genre->id ? 'btn btn-primary' : 'dynamic-link' }}">{{ $genre->name }}</a></li>
                 @endforeach
             </ul>
         </div>

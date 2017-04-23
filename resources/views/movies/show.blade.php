@@ -1,5 +1,12 @@
 @extends('templates.base')
 
+@section('title', $movie->title)
+
+@section('og-url','http://peliculascineencasa.com/cine/' . $userUrl . '/movies/' . $movie->slug)
+@section('og-title', $movie->title . '(' . $movie->year . ')')
+@section('og-image','http://peliculascineencasa.com/' . $movie->image)
+@section('og-description', str_limit($movie->synopsis))
+
 @section('content')
     @include('templates.dynamic-styles')
     <div class="container" id="movieShow">
@@ -13,7 +20,7 @@
                 </h2>
             </div>
             <div class="col-md-6">
-                <img src="{{ asset($movie->image) }}" class="img-responsive" alt="">
+                <img src="{{ asset($movie->image) }}" class="img-responsive" alt="{{ $movie->title }}" title="{{ $movie->title }}">
             </div>
             <div class="col-md-6">
                 <p>{{ $movie->synopsis }}</p>
@@ -95,7 +102,7 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{ asset($relation->image) }}" alt="">
+                                <img src="{{ asset($relation->image) }}" alt="{{ $relation->title }}" title="{{ $relation->title }}">
                             </div>
                             <div class="col-md-8">
                                 <a href="{{ route('cine.user.movies.show', ['user' => $userUrl, 'slug' => $relation->slug]) }}" class="dynamic-link"><h6>{{ $relation->title }}</h6></a>

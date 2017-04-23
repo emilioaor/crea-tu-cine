@@ -28,6 +28,11 @@ class CineController extends Controller
     public function index(Request $request)
     {
         $user = User::where('user', $request->user)->get();
+
+        if (isset($request->page) && $request->page == 1) {
+            return redirect()->route('cine.user.index', ['user' => $user[0]->user]);
+        }
+
         $cine = Cinema::where('user_id', $user[0]->id)->get();
         $genres = Genre::all();
 
@@ -38,7 +43,7 @@ class CineController extends Controller
         $movies = Movie::where('cine_id', $user[0]->getCinemas[0]->id)->orderBy('year', 'DESC')->orderBy('id','DESC')->paginate(12);
         $styles = $cine[0]->getStyles;
 
-        return view('cine.index')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres]);
+        return view('cine.index')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres, 'cinema' => $cine[0]]);
     }
 
 
@@ -49,11 +54,16 @@ class CineController extends Controller
     public function indexGenre(Request $request) {
 
         $user = User::where('user', $request->user)->get();
+
+        if (isset($request->page) && $request->page == 1) {
+            return redirect()->route('cine.user.genre', ['user' => $user[0]->user, 'id' => $request->id]);
+        }
+
         $cine = $user[0]->getCinemas[0];
         $styles = $cine->getStyles;
         $genres = Genre::all();
 
-        $movies = Movie::select('movies.id','movies.title','movies.slug','movies.year','movies.image')
+        $movies = Movie::select('movies.id','movies.title','movies.synopsis','movies.slug','movies.year','movies.image')
             ->join('movies_genres','movies.id','=','movies_genres.movie_id')
             ->join('genres','genres.id','=','movies_genres.genre_id')
             ->where('genres.id',$request->id)
@@ -62,7 +72,16 @@ class CineController extends Controller
             ->paginate(12)
         ;
 
-        return view('cine.index')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres]);
+        return view('cine.index')->with(
+            [
+                'userUrl' => $user[0]->user,
+                'movies' => $movies,
+                'styles' => $styles,
+                'genres' => $genres,
+                'cinema' => $cine,
+                'filterGenre' => $request->id,
+            ]
+        );
     }
 
     /**
@@ -141,12 +160,17 @@ class CineController extends Controller
     public function admin(Request $request)
     {
         $user = User::where('user', $request->user)->get();
+
+        if (isset($request->page) && $request->page == 1) {
+            return redirect()->route('cine.user.admin', ['user' => $user[0]->user]);
+        }
+
         $movies = Movie::where('cine_id', $user[0]->getCinemas[0]->id)->orderBy('year', 'DESC')->orderBy('id','DESC')->paginate(12);
         $cine = $user[0]->getCinemas[0];
         $styles = $cine->getStyles;
         $genres = Genre::all();
 
-        return view('cine.admin')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres]);
+        return view('cine.admin')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres, 'cinema' => $cine]);
     }
 
     /**
@@ -156,11 +180,16 @@ class CineController extends Controller
     public function adminGenre(Request $request) {
 
         $user = User::where('user', $request->user)->get();
+
+        if (isset($request->page) && $request->page == 1) {
+            return redirect()->route('cine.user.admin.genre', ['user' => $user[0]->user, 'id' => $request->id]);
+        }
+
         $cine = $user[0]->getCinemas[0];
         $styles = $cine->getStyles;
         $genres = Genre::all();
 
-        $movies = Movie::select('movies.id','movies.title','movies.slug','movies.year','movies.image')
+        $movies = Movie::select('movies.id','movies.title','movies.synopsis','movies.slug','movies.year','movies.image')
                         ->join('movies_genres','movies.id','=','movies_genres.movie_id')
                         ->join('genres','genres.id','=','movies_genres.genre_id')
                         ->where('genres.id',$request->id)
@@ -170,7 +199,16 @@ class CineController extends Controller
                         ->paginate(12)
         ;
 
-        return view('cine.admin')->with(['userUrl' => $user[0]->user, 'movies' => $movies, 'styles' => $styles, 'genres' => $genres]);
+        return view('cine.admin')->with(
+            [
+                'userUrl' => $user[0]->user,
+                'movies' => $movies,
+                'styles' => $styles,
+                'genres' => $genres,
+                'cinema' => $cine,
+                'filterGenre' => $request->id,
+            ]
+        );
     }
 
 
@@ -180,8 +218,9 @@ class CineController extends Controller
      */
     public function share(Request $request) {
         $user = User::where('user', $request->user)->get();
+        $cinema = $user[0]->getCinemas[0];
 
-        return view('cine.share')->with(['userUrl' => $user[0]->user]);
+        return view('cine.share')->with(['userUrl' => $user[0]->user, 'cinema' => $cinema]);
     }
 
 

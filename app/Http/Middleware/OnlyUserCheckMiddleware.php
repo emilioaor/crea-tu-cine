@@ -3,9 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
 
-class checkAuth
+use Auth;
+use Session;
+
+class OnlyUserCheckMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,9 +18,10 @@ class checkAuth
      */
     public function handle($request, Closure $next)
     {
-        
-        if(Auth::check() ){
-            return redirect('admin/movies');
+        if (! Auth::check()) {
+            Session::flash('alert-type', 'alert-danger');
+            Session::flash('alert-msg', 'Debe iniciar sesión');
+            return redirect()->route('index.login');
         }
 
         return $next($request);

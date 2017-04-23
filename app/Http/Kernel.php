@@ -29,7 +29,8 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin' => \App\Http\Middleware\admin::class,
-        'checkAuth' =>  \App\Http\Middleware\checkAuth::class,
+        'onlyUserCheck' => \App\Http\Middleware\OnlyUserCheckMiddleware::class,
+        'redirectCheckUser' => \App\Http\Middleware\RedirectCheckUserMiddleware::class,
+        'onlyCinemaAdmin' => \App\Http\Middleware\OnlyCinemaAdminMiddleware::class,
     ];
 }

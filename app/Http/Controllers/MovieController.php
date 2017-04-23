@@ -32,7 +32,7 @@ class MovieController extends Controller
     public function index(Request $request)
     {
         $user = User::where('user', $request->user)->get();
-        $movies = Movie::where('cine_id', $user[0]->getCinemas[0]->id)->orderBy('year', 'DESC')->paginate(30);
+        $movies = Movie::where('cine_id', $user[0]->getCinemas[0]->id)->orderBy('year', 'DESC')->orderBy('id','DESC')->paginate(30);
 
         return view('movies.index', ['userUrl' => $user[0]->user, 'movies' => $movies]);
     }

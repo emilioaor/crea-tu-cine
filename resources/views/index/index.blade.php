@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="Crea tu propio cine online y conviertelo en el mas popular">
     <meta name="description" content="Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular">
-    <meta name="author" content="Digital Designs Group">
+    <meta name="author" content="Emilio Ochoa">
     <link rel="icon" type="image/png" href="{{ asset('images/icono.png') }}" />
     <meta property="og:url"           content="http://peliculascineencasa.com" />
     <meta property="og:type"          content="website" />
@@ -250,7 +250,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p class="text-center">&copy Copyright Cine en Casa 2017 - Desarrollado por:  <a href="http://www.ddg.com.ve" target="_blank">Digital Designs Group</a></p>
+                <p class="text-center">&copy Copyright Cine en Casa 2017 - Desarrollado por:  <a href="https://emilioochoa.com.ve" target="_blank">Emilio Ochoa</a></p>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="@yield('meta-title','Crea tu propio cine online y conviertelo en el mas popular')">
     <meta name="description" content="@yield('meta-description','Crea tu propio cine online con tus películas favoritas hasta convertirlo en el mas popular')">
-    <meta name="author" content="Digital Designs Group">
+    <meta name="author" content="Emilio Ochoa">
     <meta property="og:url"           content="@yield('og-url','http://peliculascineencasa.com')" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="@yield('og-title','Cine en Casa')" />
@@ -107,7 +107,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p class="text-center">&copy Copyright Cine en Casa 2017 - Desarrollado por:  <a href="http://www.ddg.com.ve" target="_blank">Digital Designs Group</a></p>
+                <p class="text-center">&copy Copyright Cine en Casa 2017 - Desarrollado por:  <a href="https://emilioochoa.com.ve" target="_blank">Emilio Ochoa</a></p>
             </div>
         </div>
     </div>

@@ -1,0 +1,16 @@
+footer {
+	background-color: #222;
+	color: #fff;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.alert-form {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	color: #ff0707;
+	float: left;
+	padding: 2px 4px;
+	display: none;
+}
+
+.img-responsive {
+	width: 100%;
+}

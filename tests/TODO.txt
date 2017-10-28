@@ -1,0 +1,13 @@
+/* POR HACER */
+//TODO Comprobar funcionamiento del envio de correo
+
+/* MEJORAS */
+//TODO Agregar a favoritos
+//TODO Ranking de cines
+//TODO Contar las descargas y tomar en cuenta para el ranking y popularidad
+//TODO Seccion compartir con redes sociales
+//TODO Medir popularidad
+//TODO Cambiar vista de relaciones
+//TODO Catchas en comentarios
+//TODO pagina 404
+//TODO Alertas por correo al recibir comentarios
